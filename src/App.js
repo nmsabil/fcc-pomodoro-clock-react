@@ -8,7 +8,7 @@ class App extends React.Component {
       breakLength: 5,
       sessionLength: 25,
       reset: false,
-      currentTimer: 0,
+      currentTimer: 1500,
       pause: true,
     };
     this.reset = this.reset.bind(this);
@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   reset() {
-    this.setState({ sessionLength: 25, breakLength: 5 });
+    this.setState({ currentTimer: 1500, breakLength: 5 });
   }
 
   start() {
@@ -136,7 +136,10 @@ class App extends React.Component {
           {this.state.reset ? "BREAK" : "WORK"}
           <div id='time-left'>{this.convertToTime()}</div>
           <button id='start_stop' onClick={this.start}>
-            Start-Stop
+            Start
+          </button>
+          <button id='start_stop' onClick={this.stop}>
+            Stop
           </button>
           <button id='reset' onClick={this.reset}>
             Reset
